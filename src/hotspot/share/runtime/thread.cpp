@@ -3358,6 +3358,8 @@ void Threads::destroy_vm() {
   // run Java level shutdown hooks
   thread->invoke_shutdown_hooks();
 
+  RISCV64_ONLY(RVCCalculator::print();)
+
   before_exit(thread);
 
   thread->exit(true);
